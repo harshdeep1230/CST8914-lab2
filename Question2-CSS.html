@@ -6,15 +6,22 @@
     .mainsection a {
       text-decoration: none;
       color: #414040;
-      outline: none;
+      /* REMOVED: outline: none; - This hides focus indicators */
     }
 
+    /* ADDED: Clear focus indicators for keyboard navigation */
+    .mainsection a:focus {
+      outline: 3px solid #0056b3;
+      outline-offset: 3px;
+      background-color: #f0f8ff;
+      border-radius: 2px;
+    }
     
     </style>
 </head>
 <body>
 <div class="mainsection">
-<h1><img src="lab2/lab2-imageoftext.gif" alt="Shopping categories"></h1>
+<h1>Shopping categories</h1>  <!-- CHANGED: Replaced image with real text -->
 
 <ul>
   <li><a href="#">Animals</a></li>

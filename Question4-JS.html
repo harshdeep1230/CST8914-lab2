@@ -3,19 +3,44 @@
 
 <head>
     <title>Question 4 - JavaScript</title>
-
+    <style>
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        button:focus {
+            outline: 3px solid #0056b3;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>HTML DOM Events</h1>
-    <p>Trigger a function on hover that will output "Hello World":</p>
+    <p>Trigger a function on hover or keyboard focus that will output "Hello World":</p>
 
-    <button onmouseover="myFunction()">Action!</button>
+    <button 
+        onmouseover="myFunction()" 
+        onfocus="myFunction()" 
+        onkeydown="handleKeyPress(event)">
+        Action!
+    </button>
+    
     <p id="demo"></p>
 </body>
 <script>
     function myFunction() {
         document.getElementById("demo").innerHTML = "Hello World";
+    }
+    
+    function handleKeyPress(event) {
+        // Trigger on Enter or Space key (standard button activation keys)
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Prevent spacebar from scrolling page
+            myFunction();
+        }
     }
 </script>
 
